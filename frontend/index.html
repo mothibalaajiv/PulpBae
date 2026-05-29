@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="PulpBae is a premium fresh beverage startup serving orange juice, coconut water, and lime juice with natural ingredients."
+    />
+    <title>PulpBae | Freshness In Every Sip</title>
+    <link rel="icon" type="image/png" href="images/pulpbae-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-loader" id="pageLoader" aria-label="Loading PulpBae website">
+      <img src="images/pulpbae-logo.png" alt="PulpBae logo" />
+      <span>Pouring freshness...</span>
+    </div>
+
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <header class="site-header" id="siteHeader">
+      <nav class="navbar" aria-label="Main navigation">
+        <a class="brand" href="#home" aria-label="PulpBae home">
+          <img src="images/pulpbae-logo.png" alt="PulpBae logo" />
+          <span>PulpBae</span>
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#home">Home</a>
+          <a href="#products">Products</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section-shell" id="home">
+        <div class="hero-glow hero-glow-one"></div>
+        <div class="hero-glow hero-glow-two"></div>
+
+        <div class="fruit-field" aria-hidden="true">
+          <span class="fruit-bubble bubble-one">🍊</span>
+          <span class="fruit-bubble bubble-two">🥥</span>
+          <span class="fruit-bubble bubble-three">🍋</span>
+          <span class="fruit-bubble bubble-four">✨</span>
+          <span class="fruit-bubble bubble-five">💧</span>
+        </div>
+
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Launching Soon • Premium Fresh Drinks</p>
+          <h1>Freshness In Every Sip</h1>
+          <p class="hero-subtitle">Natural • Refreshing • Premium</p>
+          <p class="hero-text">
+            Meet PulpBae, the vibrant beverage startup bringing clean ingredients,
+            bold fruit flavor, and café-level freshness into every bottle.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-ghost" href="#products">Explore Flavours</a>
+          </div>
+          <div class="hero-badges" aria-label="Brand highlights">
+            <span>100% Startup Fresh</span>
+            <span>No Boring Sips</span>
+            <span>Made For Heatwaves</span>
+          </div>
+        </div>
+
+        <div class="hero-showcase reveal">
+          <div class="bottle-stage">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <img class="hero-bottle" src="images/orange-juice.png" alt="PulpBae Orange Juice bottle" />
+            <div class="price-chip">
+              <span>From</span>
+              <strong>₹60</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="marquee-strip" aria-label="PulpBae flavor highlights">
+        <div class="marquee-track">
+          <span>Cold • Natural • Premium • Refreshing • Startup Fresh •</span>
+          <span>Cold • Natural • Premium • Refreshing • Startup Fresh •</span>
+        </div>
+      </section>
+
+      <section class="products section-shell" id="products">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Signature Lineup</p>
+          <h2>Featured Products</h2>
+          <p>Three refreshing bottles designed to turn everyday thirst into a mini celebration.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card reveal" style="--accent: #ff9d13">
+            <div class="product-image-wrap">
+              <img src="images/orange-juice.png" alt="PulpBae Orange Juice bottle" />
+            </div>
+            <div class="product-content">
+              <span class="product-tag">Citrus Boost</span>
+              <h3>Orange Juice</h3>
+              <p>Freshly squeezed citrus energy packed with vitamin goodness.</p>
+              <div class="product-bottom">
+                <strong>₹80</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" style="--accent: #f8f2d9">
+            <div class="product-image-wrap">
+              <img src="images/coconut-water.png" alt="PulpBae Coconut Water bottle" />
+            </div>
+            <div class="product-content">
+              <span class="product-tag">Island Hydration</span>
+              <h3>Coconut Water</h3>
+              <p>Pure tropical hydration directly inspired by nature.</p>
+              <div class="product-bottom">
+                <strong>₹60</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" style="--accent: #c6e533">
+            <div class="product-image-wrap">
+              <img src="images/lime-juice.png" alt="PulpBae Lime Juice bottle" />
+            </div>
+            <div class="product-content">
+              <span class="product-tag">Tangy Chill</span>
+              <h3>Lime Juice</h3>
+              <p>Tangy refreshment with an instant cooling sensation.</p>
+              <div class="product-bottom">
+                <strong>₹70</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="about section-shell" id="about">
+        <div class="about-card reveal">
+          <div>
+            <p class="eyebrow">About PulpBae</p>
+            <h2>Fresh drinks for people who refuse dull refreshment.</h2>
+          </div>
+          <p>
+            PulpBae is a modern fresh beverage startup focused on healthy,
+            refreshing drinks made from natural ingredients. We craft simple,
+            bright flavours with a premium feel, so every bottle tastes clean,
+            cool, and ready for the next sunlit moment.
+          </p>
+        </div>
+      </section>
+
+      <section class="stats section-shell" aria-label="PulpBae statistics">
+        <div class="stat-card reveal">
+          <strong><span class="stat-number" data-stat-target="3">0</span></strong>
+          <span>Signature Flavours</span>
+        </div>
+        <div class="stat-card reveal">
+          <strong><span class="stat-number" data-stat-target="100">0</span>%</strong>
+          <span>Fresh Startup Energy</span>
+        </div>
+        <div class="stat-card reveal">
+          <strong><span class="stat-number" data-stat-target="24">0</span>k</strong>
+          <span>Dream Sips Planned</span>
+        </div>
+        <div class="stat-card reveal">
+          <strong><span class="stat-number" data-stat-target="0">0</span></strong>
+          <span>Boring Bottles</span>
+        </div>
+      </section>
+
+      <section class="order-counter section-shell" aria-label="Live order counter">
+        <div class="counter-panel reveal">
+          <p class="eyebrow">Live Launch Signal</p>
+          <h2>Orders So Far: <span id="ordersCount">0</span></h2>
+          <p id="counterStatus">Fetching the freshest number from PulpBae HQ...</p>
+          <button class="btn btn-primary order-trigger" data-order-button>Order Now</button>
+        </div>
+      </section>
+
+      <section class="testimonials section-shell" aria-label="Customer testimonials">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Early Love</p>
+          <h2>People are already thirsty.</h2>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="quote-mark">“</div>
+          <p id="testimonialText">
+            The orange juice feels like sunshine with a black cap. Premium, playful, and dangerously easy to crave.
+          </p>
+          <div class="testimonial-author">
+            <strong id="testimonialName">Aarav M.</strong>
+            <span id="testimonialRole">Fitness Creator</span>
+          </div>
+          <div class="testimonial-dots" id="testimonialDots" aria-label="Choose testimonial"></div>
+        </div>
+      </section>
+
+      <section class="newsletter section-shell" id="contact">
+        <div class="newsletter-panel reveal">
+          <div>
+            <p class="eyebrow">Join The First Pour</p>
+            <h2>Get launch updates, flavour drops, and tiny bursts of joy.</h2>
+            <p>Email us anytime at <a href="mailto:hello@pulpbae.com">hello@pulpbae.com</a>.</p>
+          </div>
+          <form class="newsletter-form" id="newsletterForm">
+            <label for="newsletterEmail">Email address</label>
+            <div>
+              <input id="newsletterEmail" type="email" placeholder="you@example.com" required />
+              <button class="btn btn-primary" type="submit">Notify Me</button>
+            </div>
+            <small id="newsletterMessage">No spam. Only launch sparkle.</small>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="launch-banner">Launching Soon Near You</div>
+      <div class="footer-inner">
+        <a class="footer-brand" href="#home">
+          <img src="images/pulpbae-logo.png" alt="PulpBae logo" />
+          <span>PulpBae</span>
+        </a>
+        <div class="social-links" aria-label="Social links">
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="X">𝕏</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+        <p>Contact: <a href="mailto:hello@pulpbae.com">hello@pulpbae.com</a></p>
+        <p>© <span id="year"></span> PulpBae. Freshness brewed for bold days.</p>
+      </div>
+    </footer>
+
+    <div class="modal" id="orderModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="modal-card" role="document">
+        <button class="modal-close" data-close-modal aria-label="Close popup">×</button>
+        <img src="images/pulpbae-logo.png" alt="PulpBae logo" />
+        <h2 id="modalTitle">PulpBae is arriving soon near you!</h2>
+        <p>Your sip signal has been counted. Keep your fridge emotionally prepared.</p>
+        <button class="btn btn-primary" data-close-modal>Got It</button>
+      </div>
+    </div>
+
+    <script src="assets/config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
