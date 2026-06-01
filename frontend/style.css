@@ -152,8 +152,7 @@ button {
   backdrop-filter: none;
 }
 
-.brand,
-.footer-brand {
+.brand {
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
@@ -161,8 +160,7 @@ button {
   letter-spacing: -0.04em;
 }
 
-.brand img,
-.footer-brand img {
+.brand img {
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -174,10 +172,6 @@ button {
   color: var(--orange-bright);
   font-size: clamp(1.55rem, 5vw, 2.15rem);
   text-shadow: none;
-}
-
-.footer-brand span {
-  font-size: 1.22rem;
 }
 
 .nav-links {
@@ -207,15 +201,16 @@ button {
 .hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  grid-template-columns: 1fr;
   align-items: center;
-  min-height: calc(100vh - 92px);
+  min-height: calc(82vh - 92px);
   padding: clamp(4rem, 8vw, 7rem) 0 4rem;
 }
 
 .hero-copy {
   position: relative;
   z-index: 2;
+  max-width: 780px;
 }
 
 .eyebrow {
@@ -384,89 +379,6 @@ h3 {
   backdrop-filter: blur(18px);
   font-size: 0.86rem;
   font-weight: 800;
-}
-
-.hero-showcase {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-}
-
-.bottle-stage {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: min(100%, 510px);
-  min-height: 650px;
-}
-
-.bottle-stage::before {
-  position: absolute;
-  width: 72%;
-  height: 72%;
-  border-radius: 50%;
-  content: "";
-  background: radial-gradient(circle, rgba(255, 107, 0, 0.54), rgba(255, 107, 0, 0.14) 45%, transparent 70%);
-  filter: blur(16px);
-  animation: stageGlow 4s ease-in-out infinite alternate;
-}
-
-.hero-bottle {
-  position: relative;
-  z-index: 2;
-  width: min(76%, 375px);
-  max-height: 640px;
-  object-fit: contain;
-  filter: drop-shadow(0 42px 55px rgba(0, 0, 0, 0.65));
-  animation: bottleFloat 4.5s ease-in-out infinite;
-}
-
-.orbit {
-  position: absolute;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-}
-
-.orbit-one {
-  width: 85%;
-  height: 85%;
-  animation: spinOrbit 18s linear infinite;
-}
-
-.orbit-two {
-  width: 66%;
-  height: 66%;
-  border-color: rgba(200, 243, 53, 0.24);
-  animation: spinOrbit 12s linear infinite reverse;
-}
-
-.price-chip {
-  position: absolute;
-  right: 8%;
-  bottom: 18%;
-  z-index: 4;
-  display: grid;
-  place-items: center;
-  width: 118px;
-  height: 118px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 50%;
-  background: rgba(5, 5, 5, 0.56);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(22px);
-}
-
-.price-chip span {
-  color: var(--muted);
-  font-size: 0.78rem;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.price-chip strong {
-  color: var(--lime);
-  font-size: 2.1rem;
 }
 
 .hero-glow {
@@ -783,61 +695,6 @@ h3 {
   line-height: 1.8;
 }
 
-.site-footer {
-  padding: 0 1rem 2rem;
-}
-
-.launch-banner {
-  width: min(100% - 2rem, var(--max-width));
-  margin: 0 auto;
-  padding: 1rem;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  color: #110904;
-  background: linear-gradient(90deg, var(--orange), var(--orange-bright), var(--lime));
-  font-weight: 1000;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-}
-
-.footer-inner {
-  display: grid;
-  place-items: center;
-  gap: 1rem;
-  width: min(100% - 2rem, var(--max-width));
-  margin: 0 auto;
-  padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-top: 0;
-  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
-  color: var(--muted);
-  background: rgba(255, 255, 255, 0.07);
-  text-align: center;
-  backdrop-filter: blur(20px);
-}
-
-.social-links {
-  display: flex;
-  gap: 0.75rem;
-}
-
-.social-links a {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 50%;
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.08);
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.social-links a:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 107, 0, 0.28);
-}
-
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -892,33 +749,6 @@ h3 {
   }
 }
 
-@keyframes bottleFloat {
-  0%,
-  100% {
-    transform: translateY(0) rotate(1deg);
-  }
-  50% {
-    transform: translateY(-24px) rotate(-1deg);
-  }
-}
-
-@keyframes stageGlow {
-  from {
-    transform: scale(0.92);
-    opacity: 0.72;
-  }
-  to {
-    transform: scale(1.04);
-    opacity: 1;
-  }
-}
-
-@keyframes spinOrbit {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes floatBubble {
   0%,
   100% {
@@ -949,10 +779,6 @@ h3 {
     margin-inline: auto;
   }
 
-  .bottle-stage {
-    min-height: 560px;
-  }
-
   .product-grid {
     grid-template-columns: 1fr;
   }
@@ -977,14 +803,6 @@ h3 {
 
   .hero {
     padding-top: 3rem;
-  }
-
-  .bottle-stage {
-    min-height: 480px;
-  }
-
-  .hero-bottle {
-    width: min(82%, 310px);
   }
 
   .product-card {
@@ -1041,16 +859,6 @@ h3 {
     font-size: 1.55rem;
   }
 
-  .price-chip {
-    right: 0;
-    width: 96px;
-    height: 96px;
-  }
-
-  .footer-inner,
-  .launch-banner {
-    width: min(100%, var(--max-width));
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

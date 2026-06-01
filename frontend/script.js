@@ -10,7 +10,6 @@ const navToggle = document.querySelector("#navToggle");
 const navLinks = document.querySelector("#navLinks");
 const orderButtons = document.querySelectorAll("[data-order-button]");
 const productCards = document.querySelectorAll("[data-product-card]");
-const year = document.querySelector("#year");
 const comingSoonPageUrl = "coming-soon.html";
 
 function setLoadingDone() {
@@ -130,7 +129,6 @@ function setupEventListeners() {
 }
 
 function init() {
-  year.textContent = new Date().getFullYear();
   updateScrollProgress();
   setupEventListeners();
   setupRevealAnimations();
