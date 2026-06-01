@@ -3,4 +3,4 @@
 // After deploying the backend to Render,
 // replace it with your live Render URL, for example:
 // window.PULPBAE_API_URL = "https://pulpbae-api.onrender.com";
-window.PULPBAE_API_URL = "http://localhost:5000";
+window.PULPBAE_API_URL = "https://pulpbae.onrender.com/";
