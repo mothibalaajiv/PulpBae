@@ -33,9 +33,9 @@ PulpBae/
 - Sticky glassmorphism navbar with logo, favicon, smooth scrolling, and mobile menu.
 - Animated hero section with floating fruit bubbles, glowing gradients, and product bottle showcase.
 - Premium product cards for Orange Juice, Coconut Water, and Lime Juice.
-- MongoDB Atlas-backed live counter with one simple `Order Now` button: `Orders So Far: X`.
-- API routes: `GET /api/orders` and `POST /api/orders/increment`.
-- Stylish launch modal after every order button click.
+- MongoDB Atlas-backed private click tracking for the `Order Now` button.
+- API routes: `GET /api/orders`, `POST /api/orders/increment`, and private product-card click tracking.
+- Product cards and `Order Now` route visitors to `coming-soon.html`.
 - Animated statistics, testimonials slider, newsletter UI, footer social icons, and launch banner.
 - Deployment-ready frontend and backend separation.
 
@@ -87,9 +87,9 @@ The frontend reads the backend URL from `frontend/assets/config.js`:
 window.PULPBAE_API_URL = "http://localhost:5000";
 ```
 
-## Live Counter Troubleshooting
+## Private Click Tracking Troubleshooting
 
-If `Orders So Far` stays at `0`, check these first:
+If clicks are not appearing in MongoDB, check these first:
 
 1. Start the backend from the `backend` folder:
 
@@ -214,7 +214,7 @@ Returns the current order click count.
 
 ### POST `/api/orders/increment`
 
-Increments the shared order counter by one.
+Increments the private `Order Now` button counter by one. This number is stored in MongoDB and is not displayed on the website.
 
 ```json
 {
@@ -223,9 +223,37 @@ Increments the shared order counter by one.
 }
 ```
 
+### POST `/api/products/click`
+
+Records a product card click in MongoDB without showing the count to customers.
+
+Request body:
+
+```json
+{
+  "product": "orangeJuice"
+}
+```
+
+Valid product values:
+
+```txt
+orangeJuice
+coconutWater
+limeJuice
+```
+
+MongoDB stores these under:
+
+```txt
+orderCounters.productClicks.orangeJuice
+orderCounters.productClicks.coconutWater
+orderCounters.productClicks.limeJuice
+```
+
 ## Product Mapping
 
-- `frontend/images/pulpbae-logo.png` is used in the navbar, footer, favicon, loader, and modal.
+- `frontend/images/pulpbae-logo.png` is used in the footer, favicon, loader, and coming-soon page.
 - `frontend/images/orange-juice.png` is used in the hero and Orange Juice product card.
 - `frontend/images/coconut-water.png` is used in the Coconut Water product card.
 - `frontend/images/lime-juice.png` is used in the Lime Juice product card.
@@ -233,5 +261,5 @@ Increments the shared order counter by one.
 ## Notes
 
 - Do not commit `backend/.env`.
-- The live counter requires the backend to be running and connected to MongoDB Atlas.
+- Private click tracking requires the backend to be running and connected to MongoDB Atlas.
 - If the frontend is deployed separately, always update both `frontend/assets/config.js` and backend `CORS_ORIGIN`.

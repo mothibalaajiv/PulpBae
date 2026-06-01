@@ -14,6 +14,26 @@ const orderCounterSchema = new mongoose.Schema(
       required: true,
       default: 0,
       min: 0
+    },
+    productClicks: {
+      orangeJuice: {
+        type: Number,
+        required: true,
+        default: 0,
+        min: 0
+      },
+      coconutWater: {
+        type: Number,
+        required: true,
+        default: 0,
+        min: 0
+      },
+      limeJuice: {
+        type: Number,
+        required: true,
+        default: 0,
+        min: 0
+      }
     }
   },
   {

@@ -9,14 +9,12 @@ const scrollProgress = document.querySelector("#scrollProgress");
 const siteHeader = document.querySelector("#siteHeader");
 const navToggle = document.querySelector("#navToggle");
 const navLinks = document.querySelector("#navLinks");
-const ordersCount = document.querySelector("#ordersCount");
-const counterStatus = document.querySelector("#counterStatus");
 const orderButtons = document.querySelectorAll("[data-order-button]");
-const orderModal = document.querySelector("#orderModal");
-const closeModalButtons = document.querySelectorAll("[data-close-modal]");
+const productCards = document.querySelectorAll("[data-product-card]");
 const newsletterForm = document.querySelector("#newsletterForm");
 const newsletterMessage = document.querySelector("#newsletterMessage");
 const year = document.querySelector("#year");
+const comingSoonPageUrl = "coming-soon.html";
 
 const testimonials = [
   {
@@ -36,7 +34,6 @@ const testimonials = [
   }
 ];
 
-let currentOrderCount = 0;
 let testimonialIndex = 0;
 
 function setLoadingDone() {
@@ -83,66 +80,42 @@ function animateNumber(element, start, end, duration = 700) {
   requestAnimationFrame(tick);
 }
 
-async function fetchOrderCount() {
-  try {
-    const response = await fetch(`${apiBaseUrl}/api/orders`);
-
-    if (!response.ok) {
-      throw new Error("Counter API responded with an error.");
-    }
-
-    const data = await response.json();
-    currentOrderCount = Number(data.totalOrders) || 0;
-    animateNumber(ordersCount, 0, currentOrderCount);
-    counterStatus.textContent = "Synced live with MongoDB Atlas.";
-  } catch (error) {
-    counterStatus.textContent =
-      "Start the backend on port 5000 and make sure MONGODB_URI includes /pulpbae.";
-  }
-}
-
-async function incrementOrderCount(button) {
-  const previousText = button.textContent;
-  button.disabled = true;
-  button.textContent = "Counting...";
+async function postAnalyticsAndRedirect(path, body = {}) {
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 1500);
 
   try {
-    const response = await fetch(`${apiBaseUrl}/api/orders/increment`, {
+    await fetch(`${apiBaseUrl}${path}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
-      }
+      },
+      body: JSON.stringify(body),
+      signal: controller.signal
     });
-
-    if (!response.ok) {
-      throw new Error("Unable to increment order counter.");
-    }
-
-    const data = await response.json();
-    const nextCount = Number(data.totalOrders) || currentOrderCount + 1;
-    animateNumber(ordersCount, currentOrderCount, nextCount);
-    currentOrderCount = nextCount;
-    counterStatus.textContent = "Your sip signal was added instantly.";
   } catch (error) {
-    counterStatus.textContent =
-      "Counter not updated. Check backend/.env, MongoDB Atlas access, and restart the API.";
+    // Keep the customer journey smooth even if analytics is temporarily unavailable.
   } finally {
-    button.disabled = false;
-    button.textContent = previousText;
-    openOrderModal();
+    window.clearTimeout(timeout);
+    window.location.href = comingSoonPageUrl;
   }
 }
 
-function openOrderModal() {
-  orderModal.classList.add("is-open");
-  orderModal.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
+function incrementOrderCount(button) {
+  button.disabled = true;
+  button.textContent = "Opening...";
+  postAnalyticsAndRedirect("/api/orders/increment");
 }
 
-function closeOrderModal() {
-  orderModal.classList.remove("is-open");
-  orderModal.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
+function recordProductCardClick(card) {
+  const product = card.dataset.productCard;
+
+  card.classList.add("was-clicked");
+  window.setTimeout(() => {
+    card.classList.remove("was-clicked");
+  }, 450);
+
+  postAnalyticsAndRedirect("/api/products/click", { product });
 }
 
 function setupRevealAnimations() {
@@ -242,15 +215,16 @@ function setupEventListeners() {
     button.addEventListener("click", () => incrementOrderCount(button));
   });
 
-  closeModalButtons.forEach((button) => {
-    button.addEventListener("click", closeOrderModal);
+  productCards.forEach((card) => {
+    card.addEventListener("click", () => recordProductCardClick(card));
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        recordProductCardClick(card);
+      }
+    });
   });
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeOrderModal();
-    }
-  });
 }
 
 function init() {
@@ -261,7 +235,6 @@ function init() {
   setupStatisticCounters();
   setupTestimonials();
   setupNewsletter();
-  fetchOrderCount();
 }
 
 init();

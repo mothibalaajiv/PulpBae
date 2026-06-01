@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const OrderCounter = require("./models/OrderCounter");
 const ordersRouter = require("./routes/orders");
+const productsRouter = require("./routes/products");
 
 dotenv.config();
 
@@ -63,6 +64,7 @@ app.get("/", (request, response) => {
 });
 
 app.use("/api/orders", ordersRouter);
+app.use("/api/products", productsRouter);
 
 async function startServer() {
   if (!process.env.MONGODB_URI) {
@@ -79,9 +81,33 @@ async function startServer() {
     // Create the database, collection, and initial counter document as soon as the API starts.
     await OrderCounter.findOneAndUpdate(
       { key: COUNTER_KEY },
-      { $setOnInsert: { key: COUNTER_KEY, totalOrders: 0 } },
+      {
+        $setOnInsert: {
+          key: COUNTER_KEY,
+          totalOrders: 0,
+          productClicks: {
+            orangeJuice: 0,
+            coconutWater: 0,
+            limeJuice: 0
+          }
+        }
+      },
       { new: true, upsert: true }
     );
+    await Promise.all([
+      OrderCounter.updateOne(
+        { key: COUNTER_KEY, "productClicks.orangeJuice": { $exists: false } },
+        { $set: { "productClicks.orangeJuice": 0 } }
+      ),
+      OrderCounter.updateOne(
+        { key: COUNTER_KEY, "productClicks.coconutWater": { $exists: false } },
+        { $set: { "productClicks.coconutWater": 0 } }
+      ),
+      OrderCounter.updateOne(
+        { key: COUNTER_KEY, "productClicks.limeJuice": { $exists: false } },
+        { $set: { "productClicks.limeJuice": 0 } }
+      )
+    ]);
     console.log("Order counter is ready in the orderCounters collection.");
 
     app.listen(PORT, "0.0.0.0", () => {

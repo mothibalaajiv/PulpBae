@@ -28,7 +28,6 @@
     <header class="site-header" id="siteHeader">
       <nav class="navbar" aria-label="Main navigation">
         <a class="brand" href="#home" aria-label="PulpBae home">
-          <img src="images/pulpbae-logo.png" alt="PulpBae logo" />
           <span>PulpBae</span>
         </a>
 
@@ -63,7 +62,7 @@
         <div class="hero-copy reveal">
           <p class="eyebrow">Launching Soon • Premium Fresh Drinks</p>
           <h1>Freshness In Every Sip</h1>
-          <p class="hero-subtitle">Natural • Refreshing • Premium</p>
+          <p class="hero-subtitle">Natural • Refreshing • Premium • Delivered in 10 min</p>
           <p class="hero-text">
             Meet PulpBae, the vibrant beverage startup bringing clean ingredients,
             bold fruit flavor, and café-level freshness into every bottle.
@@ -106,7 +105,14 @@
         </div>
 
         <div class="product-grid">
-          <article class="product-card reveal" style="--accent: #ff9d13">
+          <article
+            class="product-card reveal"
+            style="--accent: #ff9d13"
+            role="button"
+            tabindex="0"
+            data-product-card="orangeJuice"
+            aria-label="Track interest in Orange Juice"
+          >
             <div class="product-image-wrap">
               <img src="images/orange-juice.png" alt="PulpBae Orange Juice bottle" />
             </div>
@@ -120,7 +126,14 @@
             </div>
           </article>
 
-          <article class="product-card reveal" style="--accent: #f8f2d9">
+          <article
+            class="product-card reveal"
+            style="--accent: #f8f2d9"
+            role="button"
+            tabindex="0"
+            data-product-card="coconutWater"
+            aria-label="Track interest in Coconut Water"
+          >
             <div class="product-image-wrap">
               <img src="images/coconut-water.png" alt="PulpBae Coconut Water bottle" />
             </div>
@@ -134,7 +147,14 @@
             </div>
           </article>
 
-          <article class="product-card reveal" style="--accent: #c6e533">
+          <article
+            class="product-card reveal"
+            style="--accent: #c6e533"
+            role="button"
+            tabindex="0"
+            data-product-card="limeJuice"
+            aria-label="Track interest in Lime Juice"
+          >
             <div class="product-image-wrap">
               <img src="images/lime-juice.png" alt="PulpBae Lime Juice bottle" />
             </div>
@@ -184,11 +204,11 @@
         </div>
       </section>
 
-      <section class="order-counter section-shell" aria-label="Live order counter">
+      <section class="order-counter section-shell" aria-label="Order PulpBae">
         <div class="counter-panel reveal">
-          <p class="eyebrow">Live Launch Signal</p>
-          <h2>Orders So Far: <span id="ordersCount">0</span></h2>
-          <p id="counterStatus">Fetching the freshest number from PulpBae HQ...</p>
+          <p class="eyebrow">Launching Near You</p>
+          <h2>Ready for your first PulpBae?</h2>
+          <p>Tap once and we’ll save your sip signal privately while we prepare launch drops in your area.</p>
           <button class="btn btn-primary order-trigger" data-order-button>Order Now</button>
         </div>
       </section>
@@ -247,17 +267,6 @@
         <p>© <span id="year"></span> PulpBae. Freshness brewed for bold days.</p>
       </div>
     </footer>
-
-    <div class="modal" id="orderModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
-      <div class="modal-backdrop" data-close-modal></div>
-      <div class="modal-card" role="document">
-        <button class="modal-close" data-close-modal aria-label="Close popup">×</button>
-        <img src="images/pulpbae-logo.png" alt="PulpBae logo" />
-        <h2 id="modalTitle">PulpBae is arriving soon near you!</h2>
-        <p>Your sip signal has been counted. Keep your fridge emotionally prepared.</p>
-        <button class="btn btn-primary" data-close-modal>Got It</button>
-      </div>
-    </div>
 
     <script src="assets/config.js"></script>
     <script src="script.js"></script>
