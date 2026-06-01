@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -28,20 +28,13 @@
     <header class="site-header" id="siteHeader">
       <nav class="navbar" aria-label="Main navigation">
         <a class="brand" href="#home" aria-label="PulpBae home">
+          <img src="images/pulpbae-logo.png" alt="PulpBae logo" />
           <span>PulpBae</span>
         </a>
-
-        <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
 
         <div class="nav-links" id="navLinks">
           <a href="#home">Home</a>
           <a href="#products">Products</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
         </div>
       </nav>
     </header>
@@ -170,83 +163,12 @@
         </div>
       </section>
 
-      <section class="about section-shell" id="about">
-        <div class="about-card reveal">
-          <div>
-            <p class="eyebrow">About PulpBae</p>
-            <h2>Fresh drinks for people who refuse dull refreshment.</h2>
-          </div>
-          <p>
-            PulpBae is a modern fresh beverage startup focused on healthy,
-            refreshing drinks made from natural ingredients. We craft simple,
-            bright flavours with a premium feel, so every bottle tastes clean,
-            cool, and ready for the next sunlit moment.
-          </p>
-        </div>
-      </section>
-
-      <section class="stats section-shell" aria-label="PulpBae statistics">
-        <div class="stat-card reveal">
-          <strong><span class="stat-number" data-stat-target="3">0</span></strong>
-          <span>Signature Flavours</span>
-        </div>
-        <div class="stat-card reveal">
-          <strong><span class="stat-number" data-stat-target="100">0</span>%</strong>
-          <span>Fresh Startup Energy</span>
-        </div>
-        <div class="stat-card reveal">
-          <strong><span class="stat-number" data-stat-target="24">0</span>k</strong>
-          <span>Dream Sips Planned</span>
-        </div>
-        <div class="stat-card reveal">
-          <strong><span class="stat-number" data-stat-target="0">0</span></strong>
-          <span>Boring Bottles</span>
-        </div>
-      </section>
-
       <section class="order-counter section-shell" aria-label="Order PulpBae">
         <div class="counter-panel reveal">
           <p class="eyebrow">Launching Near You</p>
           <h2>Ready for your first PulpBae?</h2>
           <p>Tap once and we’ll save your sip signal privately while we prepare launch drops in your area.</p>
           <button class="btn btn-primary order-trigger" data-order-button>Order Now</button>
-        </div>
-      </section>
-
-      <section class="testimonials section-shell" aria-label="Customer testimonials">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Early Love</p>
-          <h2>People are already thirsty.</h2>
-        </div>
-
-        <div class="testimonial-card reveal">
-          <div class="quote-mark">“</div>
-          <p id="testimonialText">
-            The orange juice feels like sunshine with a black cap. Premium, playful, and dangerously easy to crave.
-          </p>
-          <div class="testimonial-author">
-            <strong id="testimonialName">Aarav M.</strong>
-            <span id="testimonialRole">Fitness Creator</span>
-          </div>
-          <div class="testimonial-dots" id="testimonialDots" aria-label="Choose testimonial"></div>
-        </div>
-      </section>
-
-      <section class="newsletter section-shell" id="contact">
-        <div class="newsletter-panel reveal">
-          <div>
-            <p class="eyebrow">Join The First Pour</p>
-            <h2>Get launch updates, flavour drops, and tiny bursts of joy.</h2>
-            <p>Email us anytime at <a href="mailto:hello@pulpbae.com">hello@pulpbae.com</a>.</p>
-          </div>
-          <form class="newsletter-form" id="newsletterForm">
-            <label for="newsletterEmail">Email address</label>
-            <div>
-              <input id="newsletterEmail" type="email" placeholder="you@example.com" required />
-              <button class="btn btn-primary" type="submit">Notify Me</button>
-            </div>
-            <small id="newsletterMessage">No spam. Only launch sparkle.</small>
-          </form>
         </div>
       </section>
     </main>
