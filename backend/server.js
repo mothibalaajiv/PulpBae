@@ -84,8 +84,8 @@ async function startServer() {
     );
     console.log("Order counter is ready in the orderCounters collection.");
 
-    app.listen(PORT, () => {
-      console.log(`PulpBae API running on port ${PORT}.`);
+    app.listen(PORT, "0.0.0.0", () => {
+    console.log(`PulpBae API running on port ${PORT}.`);
     });
   } catch (error) {
     console.error("MongoDB connection failed:", error.message);
