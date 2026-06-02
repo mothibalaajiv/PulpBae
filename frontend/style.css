@@ -161,8 +161,8 @@ button {
 }
 
 .brand img {
-  width: 48px;
-  height: 48px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   box-shadow: 0 0 26px rgba(255, 107, 0, 0.44);
 }
@@ -170,7 +170,7 @@ button {
 .brand span {
   padding: 0;
   color: var(--orange-bright);
-  font-size: clamp(1.55rem, 5vw, 2.15rem);
+  font-size: clamp(2rem, 5vw, 2.9rem);
   text-shadow: none;
 }
 
@@ -251,10 +251,10 @@ h1 {
   max-width: 760px;
   margin-bottom: 1rem;
   font-family: "Manrope", system-ui, sans-serif;
-  font-size: clamp(3.4rem, 8.5vw, 7rem);
+  font-size: clamp(2.6rem, 6.2vw, 5rem);
   font-weight: 900;
-  line-height: 0.96;
-  letter-spacing: -0.08em;
+  line-height: 0.98;
+  letter-spacing: -0.06em;
   background: linear-gradient(120deg, #fff9ef 0%, #ffd29f 38%, #ff6b00 72%, #c8f335 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -284,7 +284,6 @@ h3 {
 
 .hero-text,
 .section-heading p,
-.counter-panel p,
 .product-card p {
   color: var(--muted);
   line-height: 1.8;
@@ -405,79 +404,9 @@ h3 {
   background: rgba(200, 243, 53, 0.16);
 }
 
-.fruit-field {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.fruit-bubble {
-  position: absolute;
-  display: grid;
-  place-items: center;
-  width: 58px;
-  height: 58px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(14px);
-  animation: floatBubble 7s ease-in-out infinite;
-}
-
-.bubble-one {
-  top: 18%;
-  left: 48%;
-}
-
-.bubble-two {
-  right: 6%;
-  top: 21%;
-  animation-delay: -1s;
-}
-
-.bubble-three {
-  left: 4%;
-  bottom: 18%;
-  animation-delay: -2s;
-}
-
-.bubble-four {
-  right: 35%;
-  bottom: 10%;
-  animation-delay: -3s;
-}
-
-.bubble-five {
-  left: 34%;
-  top: 70%;
-  animation-delay: -4s;
-}
-
-.marquee-strip {
-  overflow: hidden;
-  border-block: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 18s linear infinite;
-}
-
-.marquee-track span {
-  padding: 1rem 0.5rem;
-  color: rgba(255, 249, 239, 0.72);
-  font-weight: 900;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
 .products,
 .order-counter {
-  padding: clamp(4.5rem, 8vw, 7rem) 0;
+  padding: clamp(3rem, 6vw, 5rem) 0;
 }
 
 .section-heading {
@@ -603,41 +532,14 @@ h3 {
   font-size: 1.72rem;
 }
 
-.counter-panel {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: var(--radius-xl);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.045));
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(24px);
-}
-
-.counter-panel::after {
-  position: absolute;
-  right: -100px;
-  bottom: -120px;
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  content: "";
-  background: radial-gradient(circle, rgba(255, 107, 0, 0.32), transparent 68%);
-}
-
-.counter-panel {
+.order-counter {
   display: grid;
   place-items: center;
-  padding: clamp(2rem, 6vw, 4.5rem);
-  text-align: center;
+  padding-top: 0.5rem;
 }
 
-.counter-panel h2 {
-  margin-bottom: 0.7rem;
-}
-
-#ordersCount {
-  color: var(--lime);
-  text-shadow: 0 0 30px rgba(200, 243, 53, 0.44);
+.order-counter .btn {
+  margin: 0 auto;
 }
 
 .coming-soon-page {
@@ -749,22 +651,6 @@ h3 {
   }
 }
 
-@keyframes floatBubble {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-  50% {
-    transform: translate3d(12px, -24px, 0) rotate(8deg);
-  }
-}
-
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 @media (max-width: 980px) {
   .hero {
     grid-template-columns: 1fr;
@@ -798,7 +684,7 @@ h3 {
   }
 
   h1 {
-    font-size: clamp(3.5rem, 18vw, 5rem);
+    font-size: clamp(2.5rem, 15vw, 4rem);
   }
 
   .hero {
